@@ -1,0 +1,387 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgba(0,0,0,0.4); 
+}
+section{
+    height: 100vh;
+    width:60%;
+    margin: auto; 
+    display: flex;
+    flex-direction: row;
+    background: rgb(31, 31, 34);
+}
+
+::-webkit-scrollbar{
+    width: 7px;
+    height: 10px;
+    background: inherit;
+}
+::-webkit-scrollbar-thumb{
+    height: 10px;
+    width: 7px;
+    background: grey;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-track{
+    background: inherit;
+    width: 5px;
+    height: 10px;
+}
+
+
+
+#leftContainer{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+#rightContainer{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+#myProfilePic{
+    height: 100px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+    
+}
+.myPicStatus{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+#myStatus{
+    margin-top: 10px;
+    color: #999999;
+}
+.nav{
+   
+    flex: 3;
+    margin: 0 10px 0 10px;
+    display:flex;
+    flex-direction: column;
+
+}
+.nav label{
+    margin: 10px 0 10px 0;
+    color: #999999;
+    cursor: pointer;
+}
+.rightContainerHeader{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#messageHolder{
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.messageInput{
+    flex: 1;
+}
+#CurrentChatProfile{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+#CurrentChatName{
+    margin-left: 20px;
+    color: #999999;
+}
+#onlineStatus{
+    margin-left: auto;
+    margin-right: 10px;
+    color: #999999;
+}
+.messageLeftDiv{
+      display: flex;
+  justify-content: flex-start;
+  padding: 0 5%;
+  margin-top: 3px;
+ 
+
+    
+}
+.messageRightDiv{
+      display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 3px;
+ 
+  
+}
+.messageleft{
+      background: #F3F3F3;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: black;
+  display: inline-block;
+  max-width: 60%;
+   justify-content: flex-start;
+   margin-bottom: 15px;
+   letter-spacing: 1px;
+   cursor: pointer;
+
+   
+}
+.messageRight{
+    justify-content: flex-end;
+    background: #F3F3F3;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: black;
+  display: inline-block;
+  max-width: 60%;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.messageInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#sendFileInput{
+    height: 35px;
+    width: 35px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#InputMessageText{
+    background: inherit;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    color: #999999;
+}
+#InputMessageText:focus{
+    outline: none;
+}
+
+#sendMessageButton{
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    background: rgb(100, 97, 97);
+    border: none;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+.changeProfileSetting{
+    height: 150px;
+    width: 150px;
+   margin-left: 40%;
+   margin-top: 40px;
+   border: 2px solid #fff;
+   object-fit: cover;
+}
+.onhover{
+    height: 150px;
+    width: 150px;
+   margin-left: 40%;
+   margin-top: 40px;
+   border: 2px dashed #fff;
+   object-fit: cover;
+
+}
+#ChangeProfilePicButton{
+    width: 100px;
+    height: 40px;
+    margin-left: 45%;
+    margin-top: 10px;
+    background: rgb(100, 97, 97);
+    color: rgb(230, 223, 223);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.settingForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+.settingFormInput{
+    width: 250px;
+    height: 40px;
+    margin-left: 90px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background: inherit;
+    color: #999999;
+    border: 1px solid #999999;
+    padding-left: 40px;
+}
+.settingFormInput:focus{
+    outline: none;
+}
+
+#settingFormSubmit{
+    height: 35px;
+    width: 250px;
+    height: 40px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+#settingFormSubmit{
+    background: rgb(100, 97, 97);
+    color: rgb(230, 223, 223);
+    height: 25px;
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.statusContainer{
+    border: 1px solid #fff;
+    width: 300px;
+    height: 80px;
+    margin: 15px 0 0px 20px ;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(230, 223, 223); 
+
+
+
+}
+.statusContainer img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 7px;
+    padding: 2px 2px 2px 2px;
+    border: 2px solid #fff;
+}
+.statusContainer div{
+    flex: 1;
+    margin-left: 20px;
+}
+.contactsContainer{
+    height: 85px;
+    width: 300px;
+    background: rgb(31, 31, 34); 
+    margin-left: 30px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+   margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.contactsContainer img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin:5px 0 0 5px;
+    margin-left: 8px;
+   
+}
+.contactandStatus{
+    flex: 1;
+    margin-top: 9px;
+    margin-left: 20px;
+    color: #999999; 
+    cursor: pointer;
+
+}
+.contactsStatus{
+    margin-top: 6px;
+    display: flex;
+    word-wrap: break-word;
+    cursor: default;
+    
+}
+#statusInput{
+    width: 300px;
+    height: 60px;
+    margin-left: 140px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background: inherit;
+    color: #999999;
+    border: 1px solid #999999;
+    padding-left: 40px;
+    word-wrap: break-word;
+}
+#statusInput:focus{
+    outline: none;
+}
+#prevChatsHolder{
+    height: 85px;
+    width: 300px;
+    background: rgb(31, 31, 34); 
+    margin-left: 30px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+   margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   border-radius: 10px;
+   cursor: pointer;
+}
+#prevChatsHolder img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin:5px 0 0 5px;
+    margin-left: 8px;
+   
+}
+@media(max-width:450px){
+    section{
+        height: 100vh;
+        width:100%;
+        margin: auto; 
+        display: flex;
+        flex-direction: column;
+        background: rgb(31, 31, 34);
+    }
+    #leftContainer{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+    }
+    .myPicStatus{
+       display: none;
+    }
+    .nav{
+   
+        flex: 1;
+        justify-content: space-around;
+        display:flex;
+        flex-direction: row;
+    
+    }
+    .hr{
+        display: none;
+    }
+    .labelSpan{
+        display: none;
+    }
+    #rightContainer{
+        flex: 10;
+        display: flex;
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./ui/icon/icon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <section>
+        <div id="leftContainer">
+            <div class="inputsHolder">
+                <div class="inputs" >
+                    <div id="input1">
+                        <img src="./ui/images/settings.png" style="cursor: pointer;">
+                        <div style="font-size: 13px;">settings</div>
+                    </div>
+                    <div id="input2">
+                        <img src="./ui/images/groupadd.png" style="cursor: pointer;">
+                        <div style="font-size: 13px;">Add group</div>
+                    </div>
+                    <div id="input3">
+                        <img src="./ui/images/logout.png" style="cursor: pointer;"  onclick="logout()">
+                        <div style="font-size: 13px;">Logout</div>
+                    </div>
+                </div>
+            </div>
+            <hr class="statusHr">
+            <div id="statusHolder">
+                
+                <div class="statusContainer">
+                    <img src="./ui/images/user2.jpg" >
+                   <div>Mau</div>
+                   
+                </div>
+
+            </div>
+        </div>
+        <hr class="sectionHr">
+        <div id="centerContainer">
+            <div class="chats" id="chats">
+                Chats
+            </div>
+            <hr style="width: 150px;margin: auto;margin-bottom: 10px;">
+            <input type="checkbox" name="checkbox" id="toggleContentsInput" onclick="toggleContents()" style="display: none;">
+            <label for="toggleContentsInput"><img id="toggleContents" src="./ui/images/contacts.png" ></label>
+
+            <input type="checkbox" name="checkbox" id="toggleStatus" onclick="toggleStatus()" style="display: none;">
+            <label for="toggleStatus"><img id="toggleStatus" src="./ui/images/thumbup.png" ></label>
+        
+            
+                <img src="./ui/images/groupadd.png" id='addGroupIcon'  style="cursor: pointer;" onclick="addNewGroup">
+          
+            
+            
+
+
+
+            <div class="previuosChatsHolder">           
+                <div id="chatsContainer">
+                    <div class="chatsContainerim">
+                        <img src="./ui/images/user2.jpg" >
+                    </div>
+                 
+                    <div class="chatsContainerAddOns">
+                        <div class="nameanddate">
+                            <div style="font-size: 16px;margin-left: 5px;letter-spacing: 1px;">
+                                Faith
+                            </div>
+                            <div style="font-size: 12px;">
+                               Mon 22nd Jan
+                            </div>
+
+                        </div>
+                        <div class="prevText">
+                            I went to the shop on mondy morning...
+                        </div>
+                    </div>
+                    <div class="newChat">
+                        3
+                    </div>
+                   
+                </div>
+                <div id="contactsContainer">
+                    <img src="./ui/images/user2.jpg" >
+                    <div class="contactandStatus" >
+                         <div>Mau</div>
+                         <div id="contactsStatus">my status</div>
+                    </div>
+                   
+                </div>
+               
+
+            </div>
+        </div>
+        <hr class="sectionHr">
+        <div id="rightContainer">
+            <div  class="chatrightContainerHolderHeader">
+                <img src="./ui/images/user2.jpg" >
+                <div>online</div>
+
+            </div>
+            <hr>
+         
+            
+            <div class="chatrightContainerHolderMessages">
+            
+                <div class="messageRightDiv">
+                    <div class="messageRight">
+
+                    </div>
+                </div>
+                <div class="messageLeftDiv">
+                    <div class="messageLeft">
+
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div class="messageRight">
+
+                    </div>
+                </div>
+                <div class="messageLeftDiv">
+                    <div class="messageLeft">
+
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div class="messageRight">
+
+                    </div>
+                </div>
+                <div class="messageLeftDiv">
+                    <div class="messageLeft">
+
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div class="messageRight">
+
+                    </div>
+                </div>
+                <div class="messageLeftDiv">
+                    <div class="messageLeft">
+
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div class="messageRight">
+
+                    </div>
+                </div>
+                <div class="messageLeftDiv">
+                    <div class="messageLeft">
+
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div class="messageRight">
+
+                    </div>
+                </div>
+                <div class="messageLeftDiv">
+                    <div class="messageLeft">
+
+                    </div>
+                </div>
+                
+            </div>
+            <hr>
+           
+            <div class="inputRightContainer">
+                <img src="./ui/images/clip.png" title="sendfile" id="sendFileInput">
+                <input type="text" name="inputText" placeholder="Type message" id="inputText">
+                <input type="submit" value="Send" id="submitMessage">
+            </div>
+        </div>
+    </section>
+ 
+    
+</body>
+</html>
+<script type="text/javascript">
+    
+    //func to get element id
+    function _(element) {
+        return document.getElementById(element);
+    }
+
+    //function to switch btwn cncts and chats pages
+    const toggleContents=()=>{
+        console.log('input');
+        var chat=_('chatsContainer');
+        var contact=_('contactsContainer');
+        var image=_('toggleContents');
+        var head=_('chats');
+
+        if (chat.style.display=='flex') {
+            chat.style.display='none';
+            contact.style.display='flex';
+            image.src='./ui/images/chat.png';
+            head.innerHTML='Contacts';
+        }else {
+            chat.style.display='flex';
+            contact.style.display='none';
+            image.src='./ui/images/contacts.png';
+            head.innerHTML='Chats';
+        }
+    }
+
+      //function to switch btwn status and chats pages
+      const toggleStatus=()=>{
+        console.log('status');
+        var right=_('rightContainer');
+        var center=_('centerContainer');
+        var left=_('leftContainer');
+        // var head=_('chats');
+
+        if (center.style.flex=='1') {
+            center.style.flex=='0';
+            left.style.flex=='1';
+        }else {
+            center.style.flex=='1';
+            left.style.flex=='0';
+        }
+
+
+      }
+
+    var data={};
+
+    //func to sendData to server
+    const sendData=(data,type)=>{
+        var xml=new XMLHttpRequest();
+        xml.onload=function(){
+           if ( xml.readyState==4||xml.status==200) {
+            handleResult( xml.responseText);
+           }
+        }
+        data.dataType=type;
+        var dataString=JSON.stringify(data);
+        xml.open('POST','routes.php',true);
+        xml.send(dataString);
+
+    }
+
+    //func to process data from server
+    const handleResult=(results)=>{
+        alert(results);
+
+        var info=JSON.parse(results);
+        
+        var key=info.dataType;
+
+        switch (key) {
+            case 'logout':
+                window.location='./login.php';
+                break;
+            case 'app':
+                var profile=_('profile');
+                profile.innerHTML=info.message.firstname;
+                break;    
+        
+            default:
+                break;
+        }
+    }
+    
+    //func fired to load app when browser is opened/redirected
+        sendData(data,"app");
+
+
+    //func to logout user
+    const logout=()=>{
+        var logout=confirm('Are you sure you want to logout?')
+        if (logout) {
+            sendData(data,"logout");
+           
+        }
+      
+    }
+
+
+
+</script>

@@ -1,0 +1,46 @@
+
+            <div class="rightContainerHeader">
+                <img src="./images/user1.jpg" id="CurrentChatProfile" alt="">
+                <span id="CurrentChatName">Mau</span>
+                <span id="onlineStatus">Online</span>
+            </div>
+            <hr style=" margin-bottom: 10px;">
+            <div id="messageHolder">
+                <div class="messageLeftDiv">
+                    <div id="messageleft">
+                        hi nimefika home kesho nduio naenda shule moi kk kkk kkk kkk
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div id="messageRight">
+                        padding of nko hapa town kres kki kko jjjj
+                    </div>
+
+                </div>
+                <div class="messageLeftDiv">
+                    <div id="messageleft">
+                        hi
+                    </div>
+                </div>
+                <div class="messageRightDiv">
+                    <div id="messageRight">
+                        padding of nko hapa town kres kki kko jjjj
+                    </div>
+
+                </div>
+                <div class="messageRightDiv">
+                    <div id="messageRight">
+                        padding of nko hapa town kres kki kko jjjj
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <hr>
+            <div class="messageInput">
+                <img src="./images/clip.png" id="sendFileInput">
+                <input type="text" name="InputMessage" id="InputMessageText" placeholder="Text Message">
+                <button id="sendMessageButton">Send</button>
+            </div>
