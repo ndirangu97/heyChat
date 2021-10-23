@@ -10,6 +10,15 @@
 </head>
 
 <body>
+
+    <div id="modal">
+
+            <span id="closeModal" onclick="closeDeleteModal()">&times</span>
+            <button class="btn" onclick="deleteMessage()">Delete</button>
+            <button class="btn" onclick="deleteForEveryone()">Delete for everyone</button>
+
+       
+    </div>
     <section>
         <div id="leftContainer">
             <div class="myPicStatus">
@@ -20,7 +29,7 @@
             </div>
             <hr style="color: green;">
             <div class="nav">
-                <input type="radio"  name="chats" id="chatsRadio" style="display: none;">
+                <input type="radio" name="chats" id="chatsRadio" style="display: none;">
                 <input type="radio" name="contacts" id="contactsRadio" style="display: none;">
                 <input type="radio" name="setings" id="settingsRadio" style="display: none;">
                 <input type="radio" name="logout" id="logoutRadio" style="display: none;">
@@ -30,7 +39,7 @@
                 <hr class="hr">
                 <label for="settingsRadio" onclick="getSettings()"><span class="labelSpan">Settings</span> <img style="float: right;" src="./ui/images/settings.png" alt=""></label>
                 <hr class="hr">
-                <label for="logoutRadio"  onclick="logout()"><span class="labelSpan">Logout</span> <img style="float: right;" src="./ui/images/logout.png" alt=""></label>
+                <label for="logoutRadio" onclick="logout()"><span class="labelSpan">Logout</span> <img style="float: right;" src="./ui/images/logout.png" alt=""></label>
                 <hr class="hr">
             </div>
 
@@ -41,7 +50,9 @@
 
         </div>
 
+
     </section>
+
 
 </body>
 
@@ -57,6 +68,7 @@
     }
 
     var CURRENT_CHAT_USER = '';
+    var MESSAGE_ID='';
 
     var rightContainer = _('rightContainer');
 
@@ -93,16 +105,16 @@
             case 'app':
                 var profile = _('myProfilePic');
                 var status = _('myStatus');
-                if (info.message.image==null) {
-                    if (info.message.gender=='male') {
+                if (info.message.image == null) {
+                    if (info.message.gender == 'male') {
                         profile.src = './ui/images/user_male.jpg';
-                    }else{
+                    } else {
                         profile.src = './ui/images/user_female.jpg';
                     }
-                }else{
+                } else {
                     profile.src = info.message.image;
                 }
-              
+
                 status.innerHTML = info.message.status;
 
 
@@ -128,14 +140,19 @@
             case 'startChats':
 
                 rightContainer.innerHTML = info.message;
-              
+
                 break;
             case 'sendMessage':
                 rightContainer.innerHTML = info.message;
                 var messageHolder = _('messageHolder');
-              
+
 
                 messageHolder.scrollTo(0, messageHolder.scrollHeight);
+                break;
+            case 'deleteMessage':
+                var messageHolder = _('messageHolder');
+                messageHolder.innerHTML = info.message;
+
                 break;
 
 
@@ -295,9 +312,9 @@
         }, "startChat");
 
     }
-      
-    
-    
+
+
+
 
     //func to send message
     const sendMessage = () => {
@@ -316,9 +333,47 @@
         }
 
     }
-    //func to delete message
-    const deleteMessage=(e) => {
-        console.log(e.target.id);
+   
+
+    //func to open modal to delete message
+    const openDeleteModal=(e)=>{
+        var modal=_('modal');
+        modal.style.display='flex';
+
+        MESSAGE_ID=e.target.id;
+
     }
 
+     //func to delete message
+     const deleteMessage = () => {
+
+        var modal=_('modal');
+        modal.style.display='none';
+
+
+        sendData({
+            messId: MESSAGE_ID,
+            chatid: CURRENT_CHAT_USER,
+        }, "deleteText");
+    }
+
+      //func to delete messagefor everyone
+      const deleteForEveryone = () => {
+
+        var modal=_('modal');
+        modal.style.display='none';
+
+
+        sendData({
+            messId: MESSAGE_ID,
+            chatid: CURRENT_CHAT_USER,
+        }, "deleteEveryoneText");
+    }
+
+    //func to close modal
+    const closeDeleteModal=() => {
+        var modal=_('modal');
+        modal.style.display='none';
+        
+    }
 </script>

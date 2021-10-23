@@ -75,7 +75,16 @@ if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "sendMessage")
 	include('./includes/sendmessageinclude.php');
 	
 }
-
+if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteText")
+{
+	include('./includes/deletemessageinclude.php');
+	
+}
+if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteEveryoneText")
+{
+	include('./includes/deleteEveryoneTextinclude.php');
+	
+}
 //generates messageid
 function messageId()
 {	
@@ -108,7 +117,7 @@ function messageLeft($row)
 {
 	return"
 	<div class='messageLeftDiv''>
-		<div class='messageleft'  onclick='deleteMessage(event)' id='$row->id'> 
+		<div class='messageleft'  ondblclick='openDeleteModal(event)' id='$row->id'> 
 		$row->message
 		</div>
 	</div>
@@ -121,7 +130,7 @@ function messageRight($row)
 {
 	return"
 	<div class='messageRightDiv' >
-            <div class='messageRight'  onclick='deleteMessage(event)' id='$row->id' >
+            <div class='messageRight'  ondblclick='openDeleteModal(event)' id='$row->id' >
 			$row->message
             </div>
 

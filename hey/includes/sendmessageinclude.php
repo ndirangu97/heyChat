@@ -110,7 +110,7 @@ if ($write) {
     $log['sender']=$_SESSION['userid'];
 
 
-    $sql='SELECT * FROM MESSAGES WHERE  (sender=:sender && reciever=:reciever) || (sender=:reciever && reciever=:sender) ';
+    $sql='SELECT * FROM MESSAGES WHERE  (sender=:sender && reciever=:reciever  && deletedSender=0) || (sender=:reciever && reciever=:sender && deletedReciever=0) ';
     $results2=$DB->read($sql,$log);
     if (is_array($results2)) {
         foreach ($results2 as $row) {
