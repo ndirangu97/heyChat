@@ -17,13 +17,16 @@ Class Database
 	{
 		try
 		{
-
-			$connection = new PDO("mysql:host=localhost;dbname=myhey_db",DBUSER,DBPASS);
+		    $username='u998182056_ndirangu97';
+		    $password='89950000hH';
+		    
+			$connection = new PDO('mysql:host=localhost;dbname=u998182056_heychat',$username, $password);
 			return $connection;
 
 		}catch(PDOException $e)
 		{
 			echo $e->getMessage();
+			
 			die;
 		}
 

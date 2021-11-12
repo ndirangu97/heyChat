@@ -1,6 +1,7 @@
 <?php
-define('DBUSER', 'root');
-define('DBPASS', '');
+define('DBUSER', 'u998182056_ndirangu97 ');
+define('DBPASS', '89950000hH');
+
 
 
 

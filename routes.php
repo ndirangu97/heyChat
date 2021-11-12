@@ -3,136 +3,118 @@
 require_once './connection/auth.php';
 session_start();
 
-$DATA_RAW=file_get_contents('php://input');
-$DATA_OBJECT=json_decode($DATA_RAW);
+$DATA_RAW = file_get_contents('php://input');
+$DATA_OBJECT = json_decode($DATA_RAW);
 
-$DB=new Database();
+$DB = new Database();
 
-$info=(object)[];
-$err="";
+$info = (object)[];
+$err = "";
 
 
 if (!isset($_SESSION['userid'])) {
 	if (isset($DATA_OBJECT->dataType)) {
-		if ($DATA_OBJECT->dataType != "signup"&&$DATA_OBJECT->dataType != "login") {
+		if ($DATA_OBJECT->dataType != "signup" && $DATA_OBJECT->dataType != "login") {
 			$info->dataType = "logout";
 			echo json_encode($info);
 			die;
-			
 		}
-		
 	}
 }
 
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "signup")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "signup") {
 	//signup
 	include("./includes/signupinclude.php");
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "login")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "login") {
 	//login
 	include("./includes/logininclude.php");
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "logout")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "logout") {
 	//logout
 	include("./includes/logoutinclude.php");
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "app")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "app") {
 	//signup
 	include("./includes/appinclude.php");
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getChats")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getChats") {
 	include('./includes/getchatsinclude.php');
-
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getContacts")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getContacts") {
 	include('./includes/getcontactsinclude.php');
-
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getSettings")
-{
-	
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getSettings") {
+
 	include('./includes/getsettingsinclude.php');
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "saveSettings")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "saveSettings") {
 	include('./includes/savesettingsinclude.php');
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "startChat")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "startChat") {
 	include('./includes/startchatinclude.php');
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "sendMessage")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "sendMessage") {
 	include('./includes/sendmessageinclude.php');
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteText")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteText") {
+    
 	include('./includes/deletemessageinclude.php');
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteEveryoneText")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteEveryoneText") {
 	include('./includes/deleteEveryoneTextinclude.php');
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "groupName")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "groupName") {
 	include('./includes/groupnameinclude.php');
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "newGroup")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "newGroup") {
 	include('./includes/newgroupinclude.php');
-
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "saveGroup")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "saveGroup") {
 	include('./includes/savegroupinclude.php');
-
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "sendGroupMessage")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "sendGroupMessage") {
 	include('./includes/sendgroupmessageinclude.php');
-
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getGroupsChats")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "getGroupsChats") {
 	include('./includes/getgroupschatsinclude.php');
-
-	
 }
-if(isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "startGroupChat")
-{
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "startGroupChat") {
 	include('./includes/startgroupchatinclude.php');
-
-	
 }
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "deleteGroupText") {
+	include('./includes/deletegrouptextinclude.php');
+}
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "chooseStatus") {
+	include('./includes/choosestatus.php');
+}
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "changeUsername") {
+    
+	include('./includes/changeusernameinclude.php');
+}
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "changeEmail") {
+    
+	include('./includes/changemailinclude.php');
+}
+if (isset($DATA_OBJECT->dataType) && $DATA_OBJECT->dataType == "showDeletedMessage") {
+	include('./includes/showdeletedmessageinclude.php');
+}
+
+
+
 
 
 
 //generate groupid
 function groupId()
-{	
+{
 
-	$array=array(0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
-	$rand=rand(4,60);
-	$r='';
-	for ($i=0; $i <=$rand ; $i++) { 
-		$random=rand(0,61);
-		$r.=$array[$random];
+	$array = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+	$rand = rand(4, 60);
+	$r = '';
+	for ($i = 0; $i <= $rand; $i++) {
+		$random = rand(0, 61);
+		$r .= $array[$random];
 	}
 	return $r;
 }
@@ -140,14 +122,14 @@ function groupId()
 
 //generates messageid
 function messageId()
-{	
+{
 
-	$array=array(0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
-	$rand=rand(4,60);
-	$r='';
-	for ($i=0; $i <=$rand ; $i++) { 
-		$random=rand(0,61);
-		$r.=$array[$random];
+	$array = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+	$rand = rand(4, 60);
+	$r = '';
+	for ($i = 0; $i <= $rand; $i++) {
+		$random = rand(0, 61);
+		$r .= $array[$random];
 	}
 	return $r;
 }
@@ -183,13 +165,15 @@ function groupInputController()
 //function returning messageLeft
 function messageLeft($row)
 {
-	return"
+	return "
 	<div class='messageLeftDiv''>
 		<div class='messageleft'  ondblclick='openDeleteModal(event)' id='$row->id'> 
-		$row->message
-		<img src='$row->files' style='max-width:200px;max-height:200px;object-fit:cover;'  id='$row->id' >
+			$row->message
+			<img src='$row->files' style='max-width:140px;max-height:200px;object-fit:cover;'  id='$row->id' >
 		</div>
+		<div>".date('H:m',strtotime($row->date))."</div>
 	</div>
+
 	";
 }
 
@@ -197,20 +181,58 @@ function messageLeft($row)
 //function returning messageRight
 function messageRight($row)
 {
-	return"
+	$a = "
 	<div class='messageRightDiv' >
             <div class='messageRight'  ondblclick='openDeleteModal(event)' id='$row->id' >
+				$row->message
+				<img src='$row->files' style='max-width:140px;max-height:200px;object-fit:cover;'  id='$row->id' >
+				
+            </div>
+
+    </div>";
+	if ($row->recieved == 1 && $row->seen == 0) {
+		$a .= "
+		<div class='ticksRight'>
+		<span style='color:gray;margin-right:5px;margin-top:-5px;'>".date('H:m a',strtotime($row->date))."</span>
+		<img src='./ui/images/greyticks.png' >
+		</div>
+		";
+	} elseif ($row->recieved == 1 && $row->seen == 1) {
+		$a .= "
+		<div class='ticksRight'>
+		<span style='color:gray;margin-right:5px;margin-top:-5px;'>".date('H:m a',strtotime($row->date))."</span>
+		<img src='./ui/images/blueticks.png' >
+		</div>
+		";
+	}
+
+	return $a;
+}
+
+//function returning messageLeft
+function groupMessageLeft($row)
+{
+	return "
+	<div class='messageLeftDiv''>
+		<div class='messageleft'  id='$row->id'> 
+		$row->message
+		<img src='$row->files' style='max-width:140px;max-height:200px;object-fit:cover;'  id='$row->id' >
+		</div>
+	</div>
+	";
+}
+
+
+//function returning messageRight
+function groupMessageRight($row)
+{
+	return "
+	<div class='messageRightDiv' >
+            <div class='messageRight'  ondblclick='openGroupDeleteModal(event)' id='$row->id' >
 			$row->message
-			<img src='$row->files' style='max-width:200px;max-height:200px;object-fit:cover;'  id='$row->id' >
+			<img src='$row->files' style='max-width:140px;max-height:200px;object-fit:cover;'  id='$row->id' >
             </div>
 
         </div>
 	";
 }
-
-
-
-
-
-
-?>
