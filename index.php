@@ -1,3 +1,5 @@
+<!-- there is an error in get groups when no group choosen -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -153,7 +155,7 @@
 
     //func to process data from server
     const handleResult = (results) => {
-        // alert(results);
+        alert(results);
 
         var info = JSON.parse(results);
 
@@ -398,7 +400,6 @@
     const handleFileResult = (results) => {
 
         
-
         var fileInfo = JSON.parse(results);
         switch (fileInfo.dataType) {
             case 'updateProfile':

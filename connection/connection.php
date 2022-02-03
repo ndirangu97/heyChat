@@ -17,10 +17,10 @@ Class Database
 	{
 		try
 		{
-		    $username='u998182056_ndirangu97';
-		    $password='89950000hH';
+		    $username='root';
+		    $password='';
 		    
-			$connection = new PDO('mysql:host=localhost;dbname=u998182056_heychat',$username, $password);
+			$connection = new PDO('mysql:host=localhost;dbname=heychat',$username, $password);
 			return $connection;
 
 		}catch(PDOException $e)
